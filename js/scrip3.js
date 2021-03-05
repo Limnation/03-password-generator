@@ -21,11 +21,15 @@ function generatePassword() {
   if (isNaN(lengthSelected) || lengthSelected < 8 || lengthSelected > 128) {
     alert("That was not a numerical Value please try again or less then 8 or greater then 128");
   } else {
-    let pass
-    for (let i = 0; i < lengthSelected; i++) {
-      pass = combinedImputArray[Math.round(Math.random() * (combinedImputArray.length - 1))];
-      finalpass += pass;
+    var lengthSelected = prompt("Select a numerical value with a length of at least 8 characters and no more than 128 characters", "8");
+    if (lengthSelected) {
+        let pass;
+      for (let i = 0; i < lengthSelected; i++) {
+        pass = combinedImputArray[Math.round(Math.random() * (combinedImputArray.length - 1))];
+        finalpass += pass;
+      }
     }
+    
   }
   return finalpass;
 

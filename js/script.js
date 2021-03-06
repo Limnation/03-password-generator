@@ -10,9 +10,10 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   
+  //creating a empty string to put your final password into
   let finalpass = "";
 
-  // turns these into arrays
+  // turns these into arrays with a | that delinates it
   let low = lowercase.split('|');
   let upp = uppercase.split('|');
   let num = numbers.split('|');
@@ -52,6 +53,7 @@ function generatePassword() {
     }
   }
 
+  // the for loop that itereated up using the length from lengthSelected prompt imput then uses math.random on the valariable pass that has been collecting all date from the confirms then addition assigns it to finalpass
   for (let i = 0; i < lengthSelected; i++) {
     var passes = pass[Math.round(Math.random() * (pass.length - 1))];
     finalpass += passes;

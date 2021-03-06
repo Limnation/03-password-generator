@@ -3,19 +3,19 @@ let lowercase = "abcdefghijklmnopqrstuvwxyz"
 let uppercase = "ABCDEGHHIJKLMNOPQRSTUVWXYZ"
 let numbers = "1234567890"
 let symbols = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-let empty = "";
+
 
 let generateBtn = document.querySelector("#generate");
 
 
 function generatePassword() {
   let finalpass = '';
-
-  // turns these into arrays
-  let low = lowercase.split('|');
-  let upp = uppercase.split('|');
-  let num = numbers.split('|');
-  let sym = symbols.split('|');
+  let empty = "";
+  // reasign the strings into a new shorter variable
+  let low = lowercase;
+  let upp = uppercase;
+  let num = numbers;
+  let sym = symbols;
   // combines them so u have all the possible text imputs to out puts
   let lowUpp = empty.concat(low, upp);
   let lowNum = empty.concat(low, num);
@@ -41,8 +41,42 @@ function generatePassword() {
   } else {
     // your write any combination of lowercase, uppercase, numeric, and/or special characters to get a password generated in that type
     let passwordCharacters = prompt("Please choose lowercase, uppercase, numeric, and/or special characters to include in the password", "lowercase, uppercase, numeric, and special characters");
-    if (passwordCharacters.includes("lowercase" && "uppercase" && "numeric" && "special characters")) {
+    if (passwordCharacters === null) {
+      location.reload();
+    }
+    else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("uppercase") && passwordCharacters.includes("numeric") && passwordCharacters.includes("special")) {
       randomizeAdding(all);
+    }
+    else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("uppercase") && passwordCharacters.includes("numeric")) {
+      randomizeAdding(lowUppNum);
+      console.log(passwordCharacters);
+    }
+    else if (passwordCharacters.includes("uppercase") && passwordCharacters.includes("numeric") && passwordCharacters.includes("special")) {
+      randomizeAdding(uppNumSym);
+    }
+    else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("numeric") && passwordCharacters.includes("special")) {
+      randomizeAdding(lowNumSym);
+    }
+    else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("uppercase") && passwordCharacters.includes("special")) {
+      randomizeAdding(lowUppSym);
+    }
+    else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("uppercase")) {
+      randomizeAdding(lowUpp);
+    }
+    else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("numeric")) {
+      randomizeAdding(lowNum);
+    }
+    else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("special")) {
+      randomizeAdding(lowSym);
+    }
+    else if (passwordCharacters.includes("uppercase") && passwordCharacters.includes("numeric")) {
+      randomizeAdding(uppNum);
+    }
+    else if (passwordCharacters.includes("uppercase") && passwordCharacters.includes("special")) {
+      randomizeAdding(uppSym);
+    }
+    else if (passwordCharacters.includes("numeric") && passwordCharacters.includes("special")) {
+      randomizeAdding(numSym);
     }
     else if (passwordCharacters.includes("lowercase")) {
       randomizeAdding(low);
@@ -56,39 +90,10 @@ function generatePassword() {
     else if (passwordCharacters.includes("special characters")) {
       randomizeAdding(sym);
     }
-    else if (passwordCharacters.includes("lowercase" && "uppercase")) {
-      randomizeAdding(lowUpp);
-    }
-    else if (passwordCharacters.includes("lowercase" && "numeric")) {
-      randomizeAdding(lowNum);
-    }
-    else if (passwordCharacters.includes("lowercase" && "special characters")) {
-      randomizeAdding(lowSym);
-    }
-    else if (passwordCharacters.includes("uppercase" && "numeric")) {
-      randomizeAdding(uppNum);
-    }
-    else if (passwordCharacters.includes("uppercase" && "special characters")) {
-      randomizeAdding(uppSym);
-    }
-    else if (passwordCharacters.includes("numeric" && "special characters")) {
-      randomizeAdding(numSym);
-    }
-    else if (passwordCharacters.includes("lowercase" && "uppercase" && "numeric")) {
-      randomizeAdding(lowUppNum);
-    }
-    else if (passwordCharacters.includes("uppercase" && "numeric" && "special characters")) {
-      randomizeAdding(uppNumSym);
-    }
-    else if (passwordCharacters.includes("lowercase" && "numeric" && "special characters")) {
-      randomizeAdding(lowNumSym);
-    }
-    else if (passwordCharacters.includes("lowercase" && "uppercase" && "special characters")) {
-      randomizeAdding(lowUppSym);
-    }
+    
     //if you type anything isnt lowercase, uppercase, numeric, and/or special characters you get alerted to type one and/of the 4
     else {
-      alert("You did not type in lowercase, uppercase, numeric, and/or special characters into the prompt textbox");
+      alert("You did not type in lowercase, uppercase, numeric, and/or special into the prompt textbox");
     } 
   }
   return finalpass;
@@ -100,6 +105,7 @@ function generatePassword() {
     for (let i = 0; i < lengthSelected; i++) {
       pass = imput[Math.round(Math.random() * (imput.length - 1))];
       finalpass += pass;
+      console.log(imputArray)
     }
   }
 }

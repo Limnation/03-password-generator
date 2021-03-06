@@ -1,3 +1,4 @@
+// declars everything as a string
 var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var uppercase = "ABCDEGHHIJKLMNOPQRSTUVWXYZ"
 var numbers = "1234567890"
@@ -8,20 +9,29 @@ var generateBtn = document.querySelector("#generate");
 
 
 function generatePassword() {
-  finalpass = '';
-  let combinedImput = empty.concat(lowercase, uppercase, numbers, symbols);
-  let combinedImputArray = combinedImput.split('');
-  let all = combinedImputArray;
+  let finalpass = '';
+
+  // turns these into arrays
   let low = lowercase.split('');
   let upp = uppercase.split('');
   let num = numbers.split('');
   let sym = symbols.split('');
-  let lowUpp = empty.concat(lowercase, uppercase);
-  let lowNum = empty.concat(lowercase, numbers);
-  let lowSym = empty.concat(lowercase, symbols);
-  let uppNum = empty.concat(uppercase, numbers);
+  // combines them so u have all the possible text imputs to out puts
+  let lowUpp = empty.concat(low, upp);
+  let lowNum = empty.concat(low, num);
+  let lowSym = empty.concat(low, sym);
+  let uppNum = empty.concat(upp, num);
+  let uppSym = empty.concat(upp, sym);
+  let numSym = empty.concat(num, sym);
+  let lowUppNum = empty.concat(low, upp, num);
+  let uppNumSym = empty.concat(upp, num, sym);
+  let lowNumSym = empty.concat(low, num, sym);
+  let lowUppSym = empty.concat(low, upp, sym);
+  let combinedImput = empty.concat(low, upp, num, sym);
+  //turns combinedImputArray into an array then shortens its to all
+  let combinedImputArray = combinedImput.split('');
+  let all = combinedImputArray;
   
-
   //promt user with message with a default value of 8
   let lengthSelected = prompt("Select a numerical value with a length of at least 8 characters and no more than 128 characters", "8");
   
@@ -29,13 +39,54 @@ function generatePassword() {
   if (isNaN(lengthSelected) || lengthSelected < 8 || lengthSelected > 128) {
     alert("That was not a numerical Value please try again or less then 8 or greater then 128");
   } else {
+    // your write any combination of lowercase, uppercase, numeric, and/or special characters to get a password generated in that type
     let passwordCharacters = prompt("PLease choose lowercase, uppercase, numeric, and/or special characters to include in the password", "lowercase, uppercase, numeric, and special characters");
-    if (passwordCharacters.includes("lowercase", "uppercase", "numeric", "special characters")) {
+    if (passwordCharacters.includes("lowercase" && "uppercase" && "numeric" && "special characters")) {
       randomizeAdding(all);
     }
-    else if (passwordCharacters.includes("lowercase", "uppercase", "numeric", "special characters")) {
-      randomizeAdding(all);
+    else if (passwordCharacters.includes("lowercase")) {
+      randomizeAdding(low);
     }
+    else if (passwordCharacters.includes("uppercase")) {
+      randomizeAdding(upp);
+    }
+    else if (passwordCharacters.includes("numeric")) {
+      randomizeAdding(num);
+    }
+    else if (passwordCharacters.includes("special characters")) {
+      randomizeAdding(sym);
+    }
+    else if (passwordCharacters.includes("lowercase" && "uppercase")) {
+      randomizeAdding(lowUpp);
+    }
+    else if (passwordCharacters.includes("lowercase" && "numeric")) {
+      randomizeAdding(lowNum);
+    }
+    else if (passwordCharacters.includes("lowercase" && "special characters")) {
+      randomizeAdding(lowSym);
+    }
+    else if (passwordCharacters.includes("uppercase" && "numeric")) {
+      randomizeAdding(uppNum);
+    }
+    else if (passwordCharacters.includes("uppercase" && "special characters")) {
+      randomizeAdding(uppSym);
+    }
+    else if (passwordCharacters.includes("numeric" && "special characters")) {
+      randomizeAdding(numSym);
+    }
+    else if (passwordCharacters.includes("lowercase" && "uppercase" && "numeric")) {
+      randomizeAdding(lowUppNum);
+    }
+    else if (passwordCharacters.includes("uppercase" && "numeric" && "special characters")) {
+      randomizeAdding(uppNumSym);
+    }
+    else if (passwordCharacters.includes("lowercase" && "numeric" && "special characters")) {
+      randomizeAdding(lowNumSym);
+    }
+    else if (passwordCharacters.includes("lowercase" && "uppercase" && "special characters")) {
+      randomizeAdding(lowUppSym);
+    }
+    //if you type anything isnt lowercase, uppercase, numeric, and/or special characters you get alerted to type one and/of the 4
     else {
       alert("You did not type in lowercase, uppercase, numeric, and/or special characters into the prompt textbox");
     } 
@@ -52,9 +103,6 @@ function generatePassword() {
     }
   }
 }
-
-
-
 
   // Write password to the #password input
   function writePassword() {

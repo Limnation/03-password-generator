@@ -21,6 +21,7 @@ The main objective I am trying to accomplish with this site is to make a Passwor
 # link to deployed application
 
 [repository](https://github.com/Limnation/03-Password-Generator)
+
 [published](https://limnation.github.io/03-Password-Generator/)
 
 ## Your Task

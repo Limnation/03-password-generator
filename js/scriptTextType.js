@@ -42,6 +42,7 @@ function generatePassword() {
     // your write any combination of lowercase, uppercase, numeric, and/or special characters to get a password generated in that type
     let passwordCharacters = prompt("Please choose lowercase, uppercase, numeric, and/or special characters to include in the password", "lowercase, uppercase, numeric, and special characters");
     if (passwordCharacters === null) {
+      alert("You pressed cancel before typing in lowercase, uppercase, numeric, and/or special into the prompt textbox");
       location.reload();
     }
     else if (passwordCharacters.includes("lowercase") && passwordCharacters.includes("uppercase") && passwordCharacters.includes("numeric") && passwordCharacters.includes("special")) {

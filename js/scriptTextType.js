@@ -1,11 +1,11 @@
 // declars everything as a string
-var lowercase = "abcdefghijklmnopqrstuvwxyz"
-var uppercase = "ABCDEGHHIJKLMNOPQRSTUVWXYZ"
-var numbers = "1234567890"
-var symbols = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-var empty = "";
+let lowercase = "abcdefghijklmnopqrstuvwxyz"
+let uppercase = "ABCDEGHHIJKLMNOPQRSTUVWXYZ"
+let numbers = "1234567890"
+let symbols = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+let empty = "";
 
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 
 
 function generatePassword() {
@@ -37,10 +37,10 @@ function generatePassword() {
   
   // checks to see if imput value (lengthSelected) is Not-a-Number and if the lenth it < 8 or > 128
   if (isNaN(lengthSelected) || lengthSelected < 8 || lengthSelected > 128) {
-    alert("That was not a numerical Value please try again or less then 8 or greater then 128");
+    alert("That was not a numerical Value please try again or less then 128 or greater then 8");
   } else {
     // your write any combination of lowercase, uppercase, numeric, and/or special characters to get a password generated in that type
-    let passwordCharacters = prompt("PLease choose lowercase, uppercase, numeric, and/or special characters to include in the password", "lowercase, uppercase, numeric, and special characters");
+    let passwordCharacters = prompt("Please choose lowercase, uppercase, numeric, and/or special characters to include in the password", "lowercase, uppercase, numeric, and special characters");
     if (passwordCharacters.includes("lowercase" && "uppercase" && "numeric" && "special characters")) {
       randomizeAdding(all);
     }

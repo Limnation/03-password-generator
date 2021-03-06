@@ -12,10 +12,10 @@ function generatePassword() {
   let finalpass = '';
 
   // turns these into arrays
-  let low = lowercase.split('');
-  let upp = uppercase.split('');
-  let num = numbers.split('');
-  let sym = symbols.split('');
+  let low = lowercase.split('|');
+  let upp = uppercase.split('|');
+  let num = numbers.split('|');
+  let sym = symbols.split('|');
   // combines them so u have all the possible text imputs to out puts
   let lowUpp = empty.concat(low, upp);
   let lowNum = empty.concat(low, num);
@@ -29,7 +29,7 @@ function generatePassword() {
   let lowUppSym = empty.concat(low, upp, sym);
   let combinedImput = empty.concat(low, upp, num, sym);
   //turns combinedImputArray into an array then shortens its to all
-  let combinedImputArray = combinedImput.split('');
+  let combinedImputArray = combinedImput
   let all = combinedImputArray;
   
   //promt user with message with a default value of 8

@@ -2,7 +2,7 @@
 
 ## Myreadme with description
 
-The main things I am trying to accomplish with this site is to make a Password generater. I ended up making two different version of this project because I found the "THEN I choose lowercase, uppercase, numeric, and/or special characters WHEN I answer each prompt" to very confusing wording so i made a version using "prompt() method" when u have to type in the "lowercase, uppercase, numeric, and/or special characters" into a pop up text box but then later talked and confermed that we should prob ignore the directions and use a "confirm() method" so i build a second (index.html) with new script using that.
+The main objective I am trying to accomplish with this site is to make a Password generater. I ended up making two different version of this project because I found the "THEN I choose lowercase, uppercase, numeric, and/or special characters WHEN I answer each prompt" to very confusing wording so i made a version using "prompt() method" doing this u have to type in any order of "lowercase, uppercase, numeric, and/or special characters" into a pop up text box. then later talked and confermed with a TA that we should prob ignore the directions and use a "confirm() method" so I decided to build a second password generater (index.html) with new script using that.
 
 ## screenshot
 
